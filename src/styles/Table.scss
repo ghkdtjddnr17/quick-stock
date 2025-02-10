@@ -1,0 +1,36 @@
+.ant-spin-container {
+
+    .ant-list-item {
+        padding: 10px 16px;
+
+        .stock_table_title {
+            font-size: 16px;
+
+        }
+
+        .stock_table_item_button_section {
+            display: flex;
+            align-items: center;
+
+            justify-content: flex-end;
+            gap: 4px;
+
+        
+            .anticon {
+                background-color: #eaeaea;
+                padding: 5px;
+                height: 100%;
+            }
+
+            .stock_input {
+                width: 60PX;
+                height: 34px;
+                border: 1px solid #eaeaea;
+                border-radius: 4px;
+                font-size: 16PX;
+                font-weight: 600;
+                text-align: center;
+            }
+        }
+    }
+}

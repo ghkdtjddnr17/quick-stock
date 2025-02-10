@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.scss';
 import { Divider, List, Typography } from 'antd';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import StockTable from './components/StockTable'
 const data = [
   '팡도르',
   '타르트피',
@@ -234,6 +235,9 @@ function App() {
     "바나나플람생크림케익",
     "쿠키앤크림케익",
   ])
+
+
+
   const [deleteItem, setDeleteItem] = useState([])
 
 
@@ -277,7 +281,8 @@ function App() {
 
   return (
     <div className="App">
-      <div style={{ width: '100vw', display: 'flex' }}>
+      <StockTable />
+      {/* <div style={{ width: '100vw', display: 'flex' }}>
         <List
           size="large"
           header={<div>기존내역</div>}
@@ -296,13 +301,7 @@ function App() {
           renderItem={(item) => <List.Item onClick={() => handleDeleteList(item)}><div>{item}</div></List.Item>}
           style={{ width: '100%', borderRadius: '0px' }}
         />
-      </div>
-
-      <button onClick={() => {
-        console.log({ selectedItem });
-        const jsonFile = JSON.stringify(selectedItem);
-        localStorage.setItem('list', jsonFile)
-      }}>제출하기</button>
+      </div> */}
     </div>
   );
 }
