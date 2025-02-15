@@ -1,0 +1,39 @@
+.stock_image {
+    display: flex;
+    width: 700px;
+
+    .table_1{
+        width: 100%;
+    }
+    table {
+        border: 1px solid black;
+        border-collapse: collapse;
+
+        thead {
+
+            th {
+                font-weight: 700;
+            }
+            .item{
+                width: 400px;
+            }
+            .amount{
+                width: 300px;
+            }
+        
+        }
+
+        tbody {
+            tr {}
+        }
+
+
+
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+    }
+}

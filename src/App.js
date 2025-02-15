@@ -3,7 +3,9 @@ import './App.scss';
 import { Divider, List, Typography } from 'antd';
 import { useCallback, useEffect, useState } from 'react';
 import StockTable from './components/StockTable'
-const data = [
+import StockInput from './components/StockInput'
+import StockImage from './components/StockImage'
+export const data = [
   '팡도르',
   '타르트피',
   '브리오슈타르트',
@@ -281,7 +283,9 @@ function App() {
 
   return (
     <div className="App">
-      <StockTable />
+      {/* <StockInput /> */}
+      {/* <StockTable /> */}
+      <StockImage />
       {/* <div style={{ width: '100vw', display: 'flex' }}>
         <List
           size="large"
