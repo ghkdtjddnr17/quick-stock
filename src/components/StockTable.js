@@ -1,35 +1,23 @@
 import { List } from "antd";
-import stockData from "../jsons/stockData.json";
 import StockButton from "./StockButton";
 import "../styles/Table.scss";
-import { useState } from "react";
+import { useStockStore } from '../stores/useStock'
 const StockTable = () => {
-	console.log(stockData);
-
-	const [test, setTest] = useState([]);
-
+	const { getStock } = useStockStore()
 	return (
 		<>
 			<List>
-				{stockData.map(({ title, id }) => {
+				{getStock.map(({ title, id, amount }) => {
 					return (
 						<>
-							<List.Item>
+							<List.Item key={title}>
 								<p className="stock_table_title">{title}</p>
-								<StockButton stockId={id} setTest={setTest} test={test} />
+								<StockButton stockInfo={{ title, amount }} />
 							</List.Item>
 						</>
 					);
 				})}
 			</List>
-
-			<button
-				onClick={() => {
-					console.log({ test });
-				}}
-			>
-				저장
-			</button>
 		</>
 	);
 };
