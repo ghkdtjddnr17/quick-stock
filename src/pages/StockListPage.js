@@ -1,4 +1,4 @@
-import StockHeader from '../components/StockHeader'
+import { StockHeader } from '../components/StockHeader'
 import StockImage from '../components/StockImage'
 
 const StockListPage = () => {

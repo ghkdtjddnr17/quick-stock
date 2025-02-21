@@ -4,7 +4,7 @@ import StockTable from "./components/StockTable";
 import StockMenu from "./components/StockMenu";
 import 'react-toastify/dist/ReactToastify.css';
 import { useStockStore } from './stores/useStock'
-
+import { StockListHeader } from './components/StockHeader'
 export const data = [
   "팡도르",
   "타르트피",
@@ -254,6 +254,7 @@ function App() {
   return (
     <div className="App">
       {/* <StockInput /> */}
+      <StockListHeader />
       <StockTable />
       <StockMenu />
     </div>
