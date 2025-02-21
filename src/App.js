@@ -36,20 +36,12 @@ export const data = [
   "플레인 베이글",
   "큐브식빵 ",
   "통팥앙금",
-  "동물성생크림",
   "에멘탈슈레드",
-  "화인휘프",
-  "트리플섹",
   "롤치즈",
-  "생폴럼",
   "얼그레이",
-  "난황",
   "바닐라빈",
-  "난백",
   "바질페스토",
-  "미로와",
   "꿀",
-  "나파쥬",
   "쿡살라미",
   "에스피",
   "우유앙금 3kg",
@@ -61,6 +53,14 @@ export const data = [
   "건조무화과",
   "땅콩버터",
   "케첩",
+  "동물성생크림",
+  "화인휘프",
+  "트리플섹",
+  "생폴럼",
+  "난황",
+  "난백",
+  "미로와",
+  "나파쥬",
   "비닐짤주머니",
   "레몬주스",
   "샤워크림",
@@ -78,44 +78,45 @@ export const data = [
   "통밀강력분",
   "프리믹스",
   "크리미비트",
+  "파인소프트T",
+  "갈색설탕 1kg",
+  "흑설탕 1kg",
+  "에스키모",
+  "냉동이스트 ",
+  "아몬드분말",
+  "슈가파우더",
+  "베이킹파우더",
+  "밀크소프트믹스",
+  "탈지분유",
+  "레비또마드레",
+  "옥수수가루",
+  "분당",
+  "황치즈분말",
+  "펄솔트",
+  "볶은 소금",
   "파마산치즈",
   "녹차믹스파우더 <말차>",
   "클로렐라가루",
   "요긴요거니타",
   "베이킹소다",
-  "파인소프트T",
-  "갈색설탕 1kg",
   "시나몬가루",
   "데코스노우",
   "컴파운드버터",
-  "흑설탕 1kg",
   "더치마르켄버터",
   "물엿",
-  "에스키모 ",
-  "냉동이스트 ",
-  "아몬드분말",
   "밤다이스",
   "아몬드슬라이스",
-  "슈가파우더",
   "호두분태",
   "건크랜베리",
-  "베이킹파우더",
-  "밀크소프트믹스",
   "연유",
   "다크코팅초코",
   "마요네즈",
   "파슬리",
-  "탈지분유",
   "크림치즈",
-  "레비또마드레",
-  "옥수수가루",
-  "분당",
-  "황치즈분말",
+  "고매",
   "코코아파우더",
   "다크칼라바우트",
   "화이트칼라바우트",
-  "펄솔트",
-  "볶은 소금",
   "다크초코칩",
   "하셀슈거",
 ];
@@ -241,54 +242,19 @@ function App() {
     setSaveStockData()
   }, [])
 
-  const [deleteItem, setDeleteItem] = useState([]);
 
-  const test123 = selectedItem.map((res, i) => {
+
+  const test123 = data.map((res, i) => {
     return {
       title: res,
-
       amount: 0
     }
   })
 
-
-  const handleSelectedList = useCallback(
-    (item) => {
-      const defalutList = new Set(list);
-      defalutList.delete(item);
-
-      const newList = [...defalutList];
-      setList([...newList]);
-
-      selectedItem.push(item);
-      const uniqueArr = [...new Set(selectedItem)];
-      setSelectedItem([...uniqueArr]);
-    },
-    [selectedItem, list],
-  );
-
-  const handleDeleteList = useCallback(
-    (deleteItem) => {
-      const setData = new Set(selectedItem);
-      setData.delete(deleteItem);
-      const newArray = [...setData];
-      setSelectedItem([...newArray]);
-
-      list.push(deleteItem);
-      const uniqueArr = [...new Set(list)];
-      setList([...uniqueArr]);
-    },
-    [selectedItem, list],
-  );
-
-
   return (
     <div className="App">
-
       {/* <StockInput /> */}
       <StockTable />
-      {/* <StockImage /> */}
-
       <StockMenu />
     </div>
   );

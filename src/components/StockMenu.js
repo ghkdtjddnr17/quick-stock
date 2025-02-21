@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useStockStore } from '../stores/useStock'
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -9,17 +9,22 @@ const StockMenu = () => {
 
     useEffect(() => {
         const saveTimestamp = localStorage.getItem('saveDate')
-        const saveDate = new Date(saveTimestamp)
-        const currentDate = new Date()
+        if (saveTimestamp) {
+            const saveDate = new Date(Number(saveTimestamp))
+            const currentDate = new Date()
 
-        saveDate.setHours(0, 0, 0, 0)
-        currentDate.setHours(0, 0, 0, 0)
+            saveDate.setHours(0, 0, 0, 0)
+            currentDate.setHours(0, 0, 0, 0)
 
-        if (currentDate.getTime() > saveDate.getTime()) {
-            return localStorage.removeItem('saveDate')
+            console.log(currentDate.getTime(), saveDate.getTime());
+
+            if (currentDate.getTime() > saveDate.getTime()) {
+                return localStorage.removeItem('stockData')
+            }
         }
     }, [])
-    const handleSave = () => {
+
+    const handleSave = useCallback(() => {
         localStorage.setItem('stockData', JSON.stringify(getStock))
         localStorage.setItem('saveDate', Date.now())
 
@@ -31,7 +36,7 @@ const StockMenu = () => {
 
         })
 
-    }
+    }, [getStock])
 
     return <>
         <section className="w-full fixed bottom-[0px]  bg-[#ffffff]">
